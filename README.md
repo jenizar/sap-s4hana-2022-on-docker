@@ -71,4 +71,6 @@ References:
 
 4. https://www.youtube.com/watch?v=98Sc3356O9k
 
-5. https://developers.sap.com/trials-downloads.html
+5. https://sapcloudapps.wordpress.com/2025/02/04/sap-s-4hana-2022-on-premise-using-docker/
+
+6. https://developers.sap.com/trials-downloads.html
