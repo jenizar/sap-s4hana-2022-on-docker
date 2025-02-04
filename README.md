@@ -27,6 +27,8 @@ Stop docker:
 
 ![alt text](https://github.com/jenizar/sap-s4hana-2022-on-docker/blob/main/screenshot/pic2.png)
 
+![alt text](https://github.com/jenizar/sap-s4hana-2022-on-docker/blob/main/screenshot/pic2a.png)
+
 conn=/H/localhost/S/3200
 
 ![alt text](https://github.com/jenizar/sap-s4hana-2022-on-docker/blob/main/screenshot/pic3.png)
