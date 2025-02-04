@@ -1,0 +1,379 @@
+jenizar@rogb360:~/develop/abaptrial_2022_sp01$ sudo docker pull sapse/abap-cloud-developer-trial:ABAPTRIAL_2022_SP01
+[sudo] password for jenizar: 
+ABAPTRIAL_2022_SP01: Pulling from sapse/abap-cloud-developer-trial
+67e592d59ffe: Pull complete 
+be5abe59dc1a: Pull complete 
+426592dde4c3: Pull complete 
+79ed1c25d9ef: Pull complete 
+682806cbdf1d: Pull complete 
+a00286f12223: Pull complete 
+cabc33e70573: Pull complete 
+122b71db6f63: Pull complete 
+1c8e3b08de45: Pull complete 
+f4aaffa3a8f5: Pull complete 
+809a67aceb65: Pull complete 
+a5cb22f12439: Pull complete 
+59c278f93208: Pull complete 
+70b9fefd97f2: Pull complete 
+9c63c777f452: Pull complete 
+49b9de982772: Pull complete 
+ca97e191ec28: Pull complete 
+90021f68e6d0: Pull complete 
+Digest: sha256:8980d8fe17073ee1427ec1ae3fbd5cde7db0a9bc613efa6aea6ce9f179e38b96
+Status: Downloaded newer image for sapse/abap-cloud-developer-trial:ABAPTRIAL_2022_SP01
+docker.io/sapse/abap-cloud-developer-trial:ABAPTRIAL_2022_SP01
+jenizar@rogb360:~/develop/abaptrial_2022_sp01$ sudo systemctl status docker
+[sudo] password for jenizar: 
+● docker.service - Docker Application Container Engine
+     Loaded: loaded (/lib/systemd/system/docker.service; enabled; vendor preset>
+     Active: active (running) since Mon 2025-02-03 07:40:40 WIB; 10h ago
+TriggeredBy: ● docker.socket
+       Docs: https://docs.docker.com
+   Main PID: 1598 (dockerd)
+      Tasks: 17
+     Memory: 14.7G
+        CPU: 44min 3.096s
+     CGroup: /system.slice/docker.service
+             └─1598 /usr/bin/dockerd -H fd:// --containerd=/run/containerd/cont>
+
+Feb 03 07:40:40 rogb360 dockerd[1598]: time="2025-02-03T07:40:40.734844816+07:0>
+Feb 03 07:40:40 rogb360 dockerd[1598]: time="2025-02-03T07:40:40.734882881+07:0>
+Feb 03 07:40:40 rogb360 dockerd[1598]: time="2025-02-03T07:40:40.734920401+07:0>
+Feb 03 07:40:40 rogb360 dockerd[1598]: time="2025-02-03T07:40:40.736142685+07:0>
+Feb 03 07:40:40 rogb360 dockerd[1598]: time="2025-02-03T07:40:40.822515299+07:0>
+Feb 03 07:40:40 rogb360 systemd[1]: Started Docker Application Container Engine.
+Feb 03 15:11:20 rogb360 dockerd[1598]: time="2025-02-03T15:11:20.874385929+07:0>
+Feb 03 15:11:20 rogb360 dockerd[1598]: time="2025-02-03T15:11:20.885984615+07:0>
+Feb 03 15:11:20 rogb360 dockerd[1598]: time="2025-02-03T15:11:20.886536829+07:0>
+Feb 03 15:11:20 rogb360 dockerd[1598]: time="2025-02-03T15:11:20.970461370+07:0>
+lines 1-22/22 (END)
+jenizar@rogb360:~/develop/abaptrial_2022_sp01$ docker run --stop-timeout 3600 -i --name a4h -h vhcala4hci -p 3200:3200 -p 3300:3300 -p 8443:8443 -p 30213:30213 -p 50000:50000 -p 50001:50001 sapse/abap-cloud-developer-trial:ABAPTRIAL_2022_SP01 -skip-limits-check -agree-to-sap-license
+docker: permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Head "http://%2Fvar%2Frun%2Fdocker.sock/_ping": dial unix /var/run/docker.sock: connect: permission denied.
+See 'docker run --help'.
+jenizar@rogb360:~/develop/abaptrial_2022_sp01$ sudo docker run --stop-timeout 3600 -i --name a4h -h vhcala4hci -p 3200:3200 -p 3300:3300 -p 8443:8443 -p 30213:30213 -p 50000:50000 -p 50001:50001 sapse/abap-cloud-developer-trial:ABAPTRIAL_2022_SP01 -skip-limits-check -agree-to-sap-license
+docker: Error response from daemon: Conflict. The container name "/a4h" is already in use by container "3cb4996abb654e808a922be5192cf0396c126ad3b54d22e8c49943a91a059687". You have to remove (or rename) that container to be able to reuse that name.
+See 'docker run --help'.
+jenizar@rogb360:~/develop/abaptrial_2022_sp01$ docker ps -a
+permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Get "http://%2Fvar%2Frun%2Fdocker.sock/v1.47/containers/json?all=1": dial unix /var/run/docker.sock: connect: permission denied
+jenizar@rogb360:~/develop/abaptrial_2022_sp01$ sudo docker ps -a
+CONTAINER ID   IMAGE                                 COMMAND                  CREATED        STATUS                    PORTS     NAMES
+3cb4996abb65   sapse/abap-platform-trial:1909_SP01   "/usr/local/bin/abap…"   9 months ago   Exited (0) 4 months ago             a4h
+jenizar@rogb360:~/develop/abaptrial_2022_sp01$ sudo docker rm -f a4h
+a4h
+jenizar@rogb360:~/develop/abaptrial_2022_sp01$ sudo docker ps -a
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+jenizar@rogb360:~/develop/abaptrial_2022_sp01$ sudo docker run --stop-timeout 3600 -i --name a4h -h vhcala4hci -p 3200:3200 -p 3300:3300 -p 8443:8443 -p 30213:30213 -p 50000:50000 -p 50001:50001 sapse/abap-cloud-developer-trial:ABAPTRIAL_2022_SP01 -skip-limits-check -agree-to-sap-license
+
+You have accepted the SAP Developer Center Software Developer License Agreement
+by passing the parameter -agree-to-sap-license.
+You can read the license text in the file /SAP_COMMUNITY_DEVELOPER_License
+in the image.
+Hint: docker exec -it a4h less /SAP_COMMUNITY_DEVELOPER_License
+
+
+WARNING: the following system limits are below recommended values:
+  (sysctl kernel.shmmni = 4096) < 32768
+  (sysctl vm.max_map_count = 65530) < 2147483647
+  (sysctl fs.aio-max-nr = 65536) < 18446744073709551615
+Hint: consider adding these parameters to your docker run command:
+  --sysctl kernel.shmmni=32768
+Hint: if you are on Linux, consider running the following system commands:
+  sudo sysctl vm.max_map_count=2147483647
+  sudo sysctl fs.aio-max-nr=18446744073709551615
+sapinit: starting
+start hostcontrol using profile /usr/sap/hostctrl/exe/host_profile
+Impromptu CCC initialization by 'rscpCInit'.
+  See SAP note 1266393.
+Impromptu CCC initialization by 'rscpCInit'.
+  See SAP note 1266393.
+sapinit: started, pid=14
+
+HDB: starting
+
+03.02.2025 11:13:35
+Start
+OK
+
+03.02.2025 11:18:59
+StartWait
+OK
+HDB: started, pid=592
+
+hdb_license_update: starting
+---
+Retrieving HDB license information
+---
+HDB Hardware Key   : L2183778543
+HDB Expiration Date: 2026-04-15 23:59:59
+Days to expire     : 436
+---
+Not updating HDB license: the file /opt/sap/HDB_license was not found
+---
+hdb_license_update: started, pid=2106
+
+asabap_license_update: starting
+---
+Retrieving AS ABAP license information
+---
+SAP License Key Administration  -  Copyright (C) 2003 - 2016 SAP AG
+
+System ID. . . . : A4H
+Hardware Key . . : J1851296352        (of this computer)
+Installation No. : *** not yet assigned ***
+System No. . . . : *** not yet assigned ***
+Release. . . . . : 793
+Software products: NetWeaver_HDB
+---
+AS ABAP license can be automatically renewed from the file /opt/sap/ASABAP_license
+Hint: new container     : docker run ... -v <local file path>:/opt/sap/ASABAP_license
+Hint: existing container: docker cp <local file path> <container name>:/opt/sap/ASABAP_license
+---
+Not updating AS ABAP license: the file /opt/sap/ASABAP_license was not found
+---
+asabap_license_update: started, pid=2122
+
+Application Server: starting
+
+03.02.2025 11:19:02
+Start
+OK
+
+03.02.2025 11:19:21
+StartWait
+OK
+Application Server: started, pid=2288
+
+Worker Processes: starting dependencies
+uuidd: starting
+uuidd: started, pid=2662
+Worker Processes: started dependencies
+Worker Processes: starting
+
+03.02.2025 11:19:23
+Start
+OK
+
+03.02.2025 11:20:33
+StartWait
+OK
+Worker Processes: started, pid=2668
+
+*** All services have been started. ***
+***
+*** To stop and be able to safely start again use Ctrl-C
+*** Or use the stop command with timeout: docker stop -t 7200 ...
+***
+*** Have fun! ***
+Got unhandled signal: 28
+Got unhandled signal: 28
+^CInterrupted by user
+My termination has been requested
+Stopping services
+Terminating -> Worker Processes (2668)
+^CInterrupted by user
+Wiping out all processes
+Killing Remaining Job: PID=1026 COMMAND=hdbindexserver-port30203
+Killing Remaining Job: PID=1029 COMMAND=hdbxsengine-port30207
+Killing Remaining Job: PID=1470 COMMAND=hdbrsutil--start--port30203--volume3--volumesuffixmnt00001/hdb00003--identifier1738581492
+Killing Remaining Job: PID=179 COMMAND=/usr/sap/HDB/HDB02/exe/sapstartsrvpf=/usr/sap/HDB/SYS/profile/HDB_HDB02_vhcala4hci-D-uhdbadm
+Killing Remaining Job: PID=180 COMMAND=/usr/sap/hostctrl/exe/sapstartsrvpf=/usr/sap/hostctrl/exe/host_profile-D
+Killing Remaining Job: PID=1810 COMMAND=hdbdiserver-port30225
+Killing Remaining Job: PID=1813 COMMAND=hdbwebdispatcher
+Killing Remaining Job: PID=2624 COMMAND=sapstartpf=/usr/sap/A4H/SYS/profile/A4H_ASCS01_vhcala4hci
+Killing Remaining Job: PID=2633 COMMAND=enq.sapA4H_ASCS01pf=/usr/sap/A4H/SYS/profile/A4H_ASCS01_vhcala4hci
+Killing Remaining Job: PID=2634 COMMAND=ms.sapA4H_ASCS01pf=/usr/sap/A4H/SYS/profile/A4H_ASCS01_vhcala4hci
+Killing Remaining Job: PID=2667 COMMAND=/usr/sbin/uuidd
+Killing Remaining Job: PID=312 COMMAND=/usr/sap/hostctrl/exe/saposcol-l-w60pf=/usr/sap/hostctrl/exe/host_profile
+Killing Remaining Job: PID=3173 COMMAND=sapstartpf=/usr/sap/A4H/SYS/profile/A4H_D00_vhcala4hci
+Killing Remaining Job: PID=3184 COMMAND=dw.sapA4H_D00pf=/usr/sap/A4H/SYS/profile/A4H_D00_vhcala4hci
+Killing Remaining Job: PID=3185 COMMAND=ig.sapA4H_D00-mode=profilepf=/usr/sap/A4H/SYS/profile/A4H_D00_vhcala4hci
+Killing Remaining Job: PID=3186 COMMAND=/usr/sap/A4H/D00/exe/igsmux_mt-mode=profile-restartcount=0-wdpid=3185pf=/usr/sap/A4H/SYS/profile/A4H_D00_vhcala4hci
+Killing Remaining Job: PID=3187 COMMAND=/usr/sap/A4H/D00/exe/igspw_mt-mode=profile-no=0-restartcount=0-wdpid=3185pf=/usr/sap/A4H/SYS/profile/A4H_D00_vhcala4hci
+Killing Remaining Job: PID=3188 COMMAND=/usr/sap/A4H/D00/exe/igspw_mt-mode=profile-no=1-restartcount=0-wdpid=3185pf=/usr/sap/A4H/SYS/profile/A4H_D00_vhcala4hci
+Killing Remaining Job: PID=3203 COMMAND=gwrd-dppf=/usr/sap/A4H/SYS/profile/A4H_D00_vhcala4hci
+Killing Remaining Job: PID=3204 COMMAND=icman-attachpf=/usr/sap/A4H/SYS/profile/A4H_D00_vhcala4hci
+Killing Remaining Job: PID=3205 COMMAND=dw.sapA4H_D00pf=/usr/sap/A4H/SYS/profile/A4H_D00_vhcala4hci
+Killing Remaining Job: PID=3206 COMMAND=dw.sapA4H_D00pf=/usr/sap/A4H/SYS/profile/A4H_D00_vhcala4hci
+Killing Remaining Job: PID=3207 COMMAND=dw.sapA4H_D00pf=/usr/sap/A4H/SYS/profile/A4H_D00_vhcala4hci
+Killing Remaining Job: PID=3208 COMMAND=dw.sapA4H_D00pf=/usr/sap/A4H/SYS/profile/A4H_D00_vhcala4hci
+Killing Remaining Job: PID=3209 COMMAND=dw.sapA4H_D00pf=/usr/sap/A4H/SYS/profile/A4H_D00_vhcala4hci
+Killing Remaining Job: PID=3210 COMMAND=dw.sapA4H_D00pf=/usr/sap/A4H/SYS/profile/A4H_D00_vhcala4hci
+Killing Remaining Job: PID=3211 COMMAND=dw.sapA4H_D00pf=/usr/sap/A4H/SYS/profile/A4H_D00_vhcala4hci
+Killing Remaining Job: PID=3212 COMMAND=dw.sapA4H_D00pf=/usr/sap/A4H/SYS/profile/A4H_D00_vhcala4hci
+Killing Remaining Job: PID=3213 COMMAND=dw.sapA4H_D00pf=/usr/sap/A4H/SYS/profile/A4H_D00_vhcala4hci
+Killing Remaining Job: PID=3214 COMMAND=dw.sapA4H_D00pf=/usr/sap/A4H/SYS/profile/A4H_D00_vhcala4hci
+Killing Remaining Job: PID=3215 COMMAND=dw.sapA4H_D00pf=/usr/sap/A4H/SYS/profile/A4H_D00_vhcala4hci
+Killing Remaining Job: PID=3216 COMMAND=dw.sapA4H_D00pf=/usr/sap/A4H/SYS/profile/A4H_D00_vhcala4hci
+Killing Remaining Job: PID=3217 COMMAND=dw.sapA4H_D00pf=/usr/sap/A4H/SYS/profile/A4H_D00_vhcala4hci
+Killing Remaining Job: PID=3218 COMMAND=dw.sapA4H_D00pf=/usr/sap/A4H/SYS/profile/A4H_D00_vhcala4hci
+Killing Remaining Job: PID=3219 COMMAND=dw.sapA4H_D00pf=/usr/sap/A4H/SYS/profile/A4H_D00_vhcala4hci
+Killing Remaining Job: PID=403 COMMAND=/usr/sap/A4H/D00/exe/sapstartsrvpf=/usr/sap/A4H/SYS/profile/A4H_D00_vhcala4hci-D-ua4hadm
+Killing Remaining Job: PID=58 COMMAND=/usr/sap/hostctrl/exe/saphostexecpf=/usr/sap/hostctrl/exe/host_profile
+Killing Remaining Job: PID=591 COMMAND=/usr/sap/A4H/ASCS01/exe/sapstartsrvpf=/usr/sap/A4H/SYS/profile/A4H_ASCS01_vhcala4hci-D-ua4hadm
+Killing Remaining Job: PID=6482 COMMAND=/usr/bin/su-a4hadm-csapcontrol -nr 00 -function StopWait 600 2
+Killing Remaining Job: PID=6487 COMMAND=-csh-csapcontrol -nr 00 -function StopWait 600 2
+Killing Remaining Job: PID=6645 COMMAND=sapcontrol-nr00-functionStopWait6002
+Killing Remaining Job: PID=761 COMMAND=sapstartpf=/usr/sap/HDB/SYS/profile/HDB_HDB02_vhcala4hci
+Killing Remaining Job: PID=769 COMMAND=/usr/sap/HDB/HDB02/vhcala4hci/trace/hdb.sapHDB_HDB02-d-nw-f/usr/sap/HDB/HDB02/vhcala4hci/daemon.inipf=/usr/sap/HDB/SYS/profile/HDB_HDB02_vhcala4hci
+Killing Remaining Job: PID=794 COMMAND=hdbnameserver
+Killing Remaining Job: PID=928 COMMAND=hdbrsutil--start--port30201--volume1--volumesuffixmnt00001/hdb00001--identifier1738581262
+Killing Remaining Job: PID=987 COMMAND=hdbcompileserver
+Killing Remaining Job: PID=990 COMMAND=hdbpreprocessor
+Good bye!
+^C
+got 3 SIGTERM/SIGINTs, forcefully exiting
+jenizar@rogb360:~/develop/abaptrial_2022_sp01$ sudo systemctl status docker
+[sudo] password for jenizar: 
+● docker.service - Docker Application Container Engine
+     Loaded: loaded (/lib/systemd/system/docker.service; enabled; vendor preset: enabled)
+     Active: active (running) since Mon 2025-02-03 07:40:40 WIB; 11h ago
+TriggeredBy: ● docker.socket
+       Docs: https://docs.docker.com
+   Main PID: 1598 (dockerd)
+      Tasks: 25
+     Memory: 154.1M
+        CPU: 44min 4.857s
+     CGroup: /system.slice/docker.service
+             └─1598 /usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock
+
+Feb 03 07:40:40 rogb360 dockerd[1598]: time="2025-02-03T07:40:40.734920401+07:00" level=info msg="Docker daemon" commit=a080c3f containerd-sn>
+Feb 03 07:40:40 rogb360 dockerd[1598]: time="2025-02-03T07:40:40.736142685+07:00" level=info msg="Daemon has completed initialization"
+Feb 03 07:40:40 rogb360 dockerd[1598]: time="2025-02-03T07:40:40.822515299+07:00" level=info msg="API listen on /run/docker.sock"
+Feb 03 07:40:40 rogb360 systemd[1]: Started Docker Application Container Engine.
+Feb 03 15:11:20 rogb360 dockerd[1598]: time="2025-02-03T15:11:20.874385929+07:00" level=error msg="Not continuing with pull after error: cont>
+Feb 03 15:11:20 rogb360 dockerd[1598]: time="2025-02-03T15:11:20.885984615+07:00" level=info msg="Layer sha256:a534c93f91036a0d2c5b403e6502ea>
+Feb 03 15:11:20 rogb360 dockerd[1598]: time="2025-02-03T15:11:20.886536829+07:00" level=info msg="Layer sha256:4a1be372bc0f14bdfc5c55ffa6333b>
+Feb 03 15:11:20 rogb360 dockerd[1598]: time="2025-02-03T15:11:20.970461370+07:00" level=info msg="Layer sha256:fc378ab30d60a2ec107ad2a8322605>
+Feb 03 19:19:18 rogb360 dockerd[1598]: time="2025-02-03T19:19:18.485343563+07:00" level=info msg="ignoring event" container=68e5d4f6f22627670>
+Feb 03 19:19:18 rogb360 dockerd[1598]: time="2025-02-03T19:19:18.496256539+07:00" level=warning msg="failed to close stdin: NotFound: task 68>
+
+jenizar@rogb360:~/develop/abaptrial_2022_sp01$ sudo docker ps -a
+CONTAINER ID   IMAGE                                                  COMMAND                  CREATED             STATUS                     PORTS     NAMES
+68e5d4f6f226   sapse/abap-cloud-developer-trial:ABAPTRIAL_2022_SP01   "/usr/local/bin/abap…"   About an hour ago   Exited (0) 3 minutes ago             a4h
+jenizar@rogb360:~/develop/abaptrial_2022_sp01$ sudo docker start -ai a4h
+
+You have accepted the SAP Developer Center Software Developer License Agreement
+by passing the parameter -agree-to-sap-license.
+You can read the license text in the file /SAP_COMMUNITY_DEVELOPER_License
+in the image.
+Hint: docker exec -it a4h less /SAP_COMMUNITY_DEVELOPER_License
+
+
+WARNING: the following system limits are below recommended values:
+  (sysctl kernel.shmmni = 4096) < 32768
+  (sysctl vm.max_map_count = 65530) < 2147483647
+  (sysctl fs.aio-max-nr = 65536) < 18446744073709551615
+Hint: consider adding these parameters to your docker run command:
+  --sysctl kernel.shmmni=32768
+Hint: if you are on Linux, consider running the following system commands:
+  sudo sysctl vm.max_map_count=2147483647
+  sudo sysctl fs.aio-max-nr=18446744073709551615
+sapinit: starting
+start hostcontrol using profile /usr/sap/hostctrl/exe/host_profile
+Impromptu CCC initialization by 'rscpCInit'.
+  See SAP note 1266393.
+Impromptu CCC initialization by 'rscpCInit'.
+  See SAP note 1266393.
+sapinit: started, pid=13
+
+HDB: starting
+
+03.02.2025 12:23:17
+Start
+OK
+
+03.02.2025 12:23:31
+StartWait
+FAIL: process hdbdaemon HDB Daemon not running
+HDB: the start command failed, exit code=2
+The service HDB has failed to start and initialization is blocked until the problem is resolved
+You can try your luck 10 times until initialization is terminated
+Hint: docker containers can be joined by: docker exec -it <name> bash
+Hint: Container must have at least 16GB RAM available
+Hint: Container must have at least 70GB DISK free
+Hit Return to continue
+
+HDB: starting
+
+03.02.2025 12:23:37
+Start
+OK
+
+03.02.2025 12:24:29
+StartWait
+OK
+HDB: started, pid=794
+
+hdb_license_update: starting
+---
+Retrieving HDB license information
+---
+HDB Hardware Key   : L2183778543
+HDB Expiration Date: 2026-04-15 23:59:59
+Days to expire     : 436
+---
+Not updating HDB license: the file /opt/sap/HDB_license was not found
+---
+hdb_license_update: started, pid=1994
+
+asabap_license_update: starting
+---
+Retrieving AS ABAP license information
+---
+SAP License Key Administration  -  Copyright (C) 2003 - 2016 SAP AG
+
+System ID. . . . : A4H
+Hardware Key . . : J1851296352        (of this computer)
+Installation No. : *** not yet assigned ***
+System No. . . . : *** not yet assigned ***
+Release. . . . . : 793
+Software products: NetWeaver_HDB
+---
+AS ABAP license can be automatically renewed from the file /opt/sap/ASABAP_license
+Hint: new container     : docker run ... -v <local file path>:/opt/sap/ASABAP_license
+Hint: existing container: docker cp <local file path> <container name>:/opt/sap/ASABAP_license
+---
+Not updating AS ABAP license: the file /opt/sap/ASABAP_license was not found
+---
+asabap_license_update: started, pid=2010
+
+Application Server: starting
+
+03.02.2025 12:24:32
+Start
+OK
+
+03.02.2025 12:24:51
+StartWait
+OK
+Application Server: started, pid=2175
+
+Worker Processes: starting dependencies
+uuidd: starting
+uuidd: started, pid=2547
+Worker Processes: started dependencies
+Worker Processes: starting
+
+03.02.2025 12:24:52
+Start
+OK
+
+03.02.2025 12:25:12
+StartWait
+OK
+Worker Processes: started, pid=2553
+
+*** All services have been started. ***
+***
+*** To stop and be able to safely start again use Ctrl-C
+*** Or use the stop command with timeout: docker stop -t 7200 ...
+***
+*** Have fun! ***
+Got unhandled signal: 28
+Got unhandled signal: 28
+Got unhandled signal: 28
+Got unhandled signal: 28
+^Ccontext canceled
+jenizar@rogb360:~/develop/abaptrial_2022_sp01$ ^C
+jenizar@rogb360:~/develop/abaptrial_2022_sp01$ 
+
