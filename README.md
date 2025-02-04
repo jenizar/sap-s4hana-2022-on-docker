@@ -33,9 +33,13 @@ conn=/H/localhost/S/3200
 
 ![alt text](https://github.com/jenizar/sap-s4hana-2022-on-docker/blob/main/screenshot/pic3.png)
 
+client: 001
+
 username: DEVELOPER
 
 password: ABAPtr2022#01
+
+Logon Language: EN
 
 ![alt text](https://github.com/jenizar/sap-s4hana-2022-on-docker/blob/main/screenshot/pic4.png)
 
